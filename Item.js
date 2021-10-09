@@ -11,7 +11,7 @@ export default function Item({ title, data }) {
 		<View style = {styles.item}>
 			<Text style={styles.text}>{title}</Text>
             {breeds.map((key) => {
-                return <Text>{key}:{data[key]}</Text>
+                return <Text>{key}:  {data[key]}</Text>
             })}
 		</View>
 	);
@@ -24,7 +24,7 @@ const styles = StyleSheet.create({
         padding: 20, 
         alignItems: 'center', 
         justifyContent: 'center', 
-        backgroundColor: 'lightblue'
+        backgroundColor: 'lightyellow'
     },
     text: {
         fontSize: 28, 
