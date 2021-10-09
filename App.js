@@ -4,23 +4,17 @@ import { StyleSheet, SafeAreaView, View, ScrollView, FlatList } from 'react-nati
 import Item from './Item'
 
 
-import { cats } from './breeds'
+import { cats, dogs } from './breeds'
 
 export default function App() {
   return (
-    // 
-    //   {/* <ScrollView>
-    //       {cats.map((item, index) => {
-    //           return <Item title={`${index} ${item.breed}`} />
-	  //       })}
-    //   </ScrollView>
-    //     </SafeAreaView> */}
+    
   <SafeAreaView style={styles.container}> 
-    <View >
+    <View style={styles.heading}>
       <FlatList
         data={cats}
         renderItem={({ item, index }) => {
-        return <Item title={item.breed} index={index} />
+        return <Item title={`${index} ${item.breed}`} data={item}/>
       }}
       keyExtractor={item => item.breed}
       />
@@ -34,12 +28,12 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: 'lightyellow',
-    alignItems: 'center',
-    justifyContent: 'center',
-    marginTop: 50
+    alignItems: 'flex-start',
+    justifyContent: 'space-evenly',
+    marginTop: 10
   },
   heading: {
-    fontSize: 50,
+    fontSize: 30,
     // fontFamily: 'monospace',
     color: 'tomato',
     fontWeight: 'bold'
