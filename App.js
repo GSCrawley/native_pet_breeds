@@ -1,19 +1,32 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View, FlatList } from 'react-native';
-// import * as Font from 'expo-font';
+import { StyleSheet, SafeAreaView, View, ScrollView, FlatList } from 'react-native';
+import Item from './Item'
+
 
 import { cats } from './breeds'
 
 export default function App() {
   return (
-    <View style={styles.container}>
+    // 
+    //   {/* <ScrollView>
+    //       {cats.map((item, index) => {
+    //           return <Item title={`${index} ${item.breed}`} />
+	  //       })}
+    //   </ScrollView>
+    //     </SafeAreaView> */}
+  <SafeAreaView style={styles.container}> 
+    <View >
       <FlatList
-        data = {cats}
-
-        />
+        data={cats}
+        renderItem={({ item, index }) => {
+        return <Item title={item.breed} index={index} />
+      }}
+      keyExtractor={item => item.breed}
+      />
       <StatusBar style="auto" />
-    </View>
+      </View>
+      </SafeAreaView>
   );
 }
 
@@ -23,6 +36,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'lightyellow',
     alignItems: 'center',
     justifyContent: 'center',
+    marginTop: 50
   },
   heading: {
     fontSize: 50,
