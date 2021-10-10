@@ -1,12 +1,13 @@
-import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, SafeAreaView, FlatList } from 'react-native';
+import React, {useState} from 'react';
+import { StyleSheet, SafeAreaView, FlatList, TextInput } from 'react-native';
 import Item from './Item'
 
 
 import { cats, dogs } from './breeds'
 
 export default function App() {
+  const [search, setSearch] = useState('')
+
   return (
     
   <SafeAreaView style={styles.container}> 
@@ -17,8 +18,8 @@ export default function App() {
       }}
       keyExtractor={item => item.breed}
       />
-      {/* <StatusBar style="auto" /> */}
-      </SafeAreaView>
+      
+  </SafeAreaView>
   );
 }
 
@@ -33,5 +34,9 @@ const styles = StyleSheet.create({
   flatlist: {
     borderWidth: 10,
     borderColor: 'yellow'
+  },
+  search: {
+    fontSize: 24,
+    padding: 10
   }
 })
